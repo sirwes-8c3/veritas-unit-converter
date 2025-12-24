@@ -1,0 +1,1 @@
+Read README.md, specs/01-overview.md, CLAUDE.md, ai_docs/*, "git ls-tree --full-tree --name-only -r HEAD | tree --fromfile ." to understand this codebase.
