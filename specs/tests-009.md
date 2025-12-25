@@ -85,7 +85,7 @@ Create comprehensive unit tests for the service layer (ConversionService, Conver
 # Run all unit tests
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
-  -destination 'platform=iOS Simulator,name=iPhone 15'
+  -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0'
 ```
 
 ---
