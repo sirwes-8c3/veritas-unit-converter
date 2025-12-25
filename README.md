@@ -74,3 +74,7 @@ In v0.1, data storage will Swift's @AppStorage framework.  Existing supported co
         * **Impact**: Users in regions using comma separators will find the conversion failing silently (values will clear or not update).
         * **Recommendation**: Use `NumberFormatter` or `try? Double(value, format: .number)` for locale-aware parsing.
         * see notes/views-005-CR-20251225-0025.md
+* Implement best practices for I/O
+    * [INFO] Synchronous File I/O**: `ConversionDataLoader.getUnits` is called synchronously on the Main Actor. While likely negligible for this specific dataset, robust implementations generally prefer asynchronous I/O for file operations to guarantee no frame drops.
+    * see notes/tabs-006-CR-20251225-0045.md
+

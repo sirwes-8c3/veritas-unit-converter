@@ -10,6 +10,7 @@ struct CategoryTabContent: View {
 
     @State private var units: [Unit] = []
     @State private var loadError: String?
+    @State private var isLoading = true
 
     var body: some View {
         Group {
@@ -20,12 +21,19 @@ struct CategoryTabContent: View {
                 } description: {
                     Text(error)
                 }
-            } else if units.isEmpty {
+            } else if isLoading {
                 // Loading state
                 VStack {
                     ProgressView()
                     Text("Loading...")
                         .padding(.top, 8)
+                }
+            } else if units.isEmpty {
+                // Empty state
+                ContentUnavailableView {
+                    Label("No Units Available", systemImage: "questionmark.circle")
+                } description: {
+                    Text("This category has no units configured.")
                 }
             } else {
                 // Success state
@@ -45,6 +53,7 @@ struct CategoryTabContent: View {
         } catch {
             loadError = error.localizedDescription
         }
+        isLoading = false
     }
 }
 
