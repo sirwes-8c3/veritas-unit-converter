@@ -18,6 +18,9 @@ struct InputFieldView: View {
             .font(.title2)
             .multilineTextAlignment(.center)
             .focused($isFocused)
+            .onSubmit {
+                onSubmit()
+            }
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(8)
