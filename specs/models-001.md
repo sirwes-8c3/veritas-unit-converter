@@ -89,11 +89,11 @@ struct ConversionsData: Codable {
 ```swift
 let id: UUID
 let categoryId: String
-let fromUnitId: String
-let toUnitId: String
+let leftUnitId: String
+let rightUnitId: String
 ```
 
-**Initializer**: Generate UUID automatically, accept categoryId, fromUnitId, toUnitId as parameters
+**Initializer**: Generate UUID automatically, accept categoryId, leftUnitId, rightUnitId as parameters
 
 ---
 

@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct FavoriteConversion: Codable, Identifiable {
+struct FavoriteConversion: Codable, Identifiable, Hashable {
     let id: UUID
     let categoryId: String
     let leftUnitId: String
