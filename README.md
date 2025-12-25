@@ -60,3 +60,7 @@ In v0.1, data storage will Swift's @AppStorage framework.  Existing supported co
     * [WARN] Performance**: In `ConversionService.format(value:decimals:)`, a new `NumberFormatter` is instantiated on every call.
     *   **Impact**: `NumberFormatter` initialization is computationally expensive. If this method is called frequently (e.g., inside a `List` or `lazy` stack scrolling through many conversions), it could cause frame drops.
     *   **Recommendation**: Consider caching the formatter or creating a shared instance, although thread safety must be considered. For a v0.1 implementation, this may be acceptable, but it should be noted for optimization.
+* Consider caching conversions data in the next iteration
+    * [WARN]** **Performance**: `loadConversions()` reads and decodes the `conversions.json` file from disk every time it is called. Since `getCategoryData` and `getUnits` both rely on this, navigating between tabs or picking units will trigger disk I/O repeatedly.
+        * **Recommendation**: Cache the loaded data in a static property.
+        * see notes/loader-004-CR-20251224-2359.md
