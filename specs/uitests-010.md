@@ -108,7 +108,7 @@ app.launch()
 # Run UI tests on simulator
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
-  -destination 'platform=iOS Simulator,name=iPhone 15' \
+  -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
   -only-testing:VeritasUnitConverterUITests
 ```
 
