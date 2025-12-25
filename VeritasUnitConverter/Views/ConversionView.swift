@@ -70,6 +70,23 @@ struct ConversionView: View {
                 }
             }
             .padding()
+
+            Button(action: {
+                if leftFocused {
+                    convertLeftToRight()
+                } else if rightFocused {
+                    convertRightToLeft()
+                }
+                leftFocused = false
+                rightFocused = false
+            }) {
+                Text("Convert")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .padding(.horizontal)
+            .accessibilityIdentifier("convertButton")
         }
         .navigationTitle(category.rawValue.capitalized)
         .toolbar {
@@ -82,20 +99,6 @@ struct ConversionView: View {
                 .accessibilityIdentifier(isFavorite ? "starFillButton" : "starButton")
             }
 
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Convert") {
-                    if leftFocused {
-                        convertLeftToRight()
-                    } else if rightFocused {
-                        convertRightToLeft()
-                    }
-                    leftFocused = false
-                    rightFocused = false
-                }
-                .fontWeight(.semibold)
-                .accessibilityIdentifier("convertButton")
-            }
         }
         .onChange(of: leftFocused) { _, isFocused in
             if isFocused {
@@ -120,8 +123,9 @@ struct ConversionView: View {
 
     private func convertLeftToRight() {
         guard let fromUnit = leftUnit,
-              let toUnit = rightUnit,
-              let value = Double(leftValue) else {
+            let toUnit = rightUnit,
+            let value = Double(leftValue)
+        else {
             rightValue = ""
             return
         }
@@ -137,8 +141,9 @@ struct ConversionView: View {
 
     private func convertRightToLeft() {
         guard let fromUnit = rightUnit,
-              let toUnit = leftUnit,
-              let value = Double(rightValue) else {
+            let toUnit = leftUnit,
+            let value = Double(rightValue)
+        else {
             leftValue = ""
             return
         }
@@ -158,9 +163,8 @@ struct ConversionView: View {
         if isFavorite {
             // Find and remove the favorite
             if let favorite = favoritesManager.favorites.first(where: {
-                $0.categoryId == category.rawValue &&
-                $0.leftUnitId == left.id &&
-                $0.rightUnitId == right.id
+                $0.categoryId == category.rawValue && $0.leftUnitId == left.id
+                    && $0.rightUnitId == right.id
             }) {
                 favoritesManager.removeFavorite(favorite)
             }
@@ -181,7 +185,7 @@ struct ConversionView: View {
             category: .weight,
             units: [
                 Unit(id: "gram", name: "Gram", symbol: "g", toBase: 1.0, toBaseOffset: 0),
-                Unit(id: "ounce", name: "Ounce", symbol: "oz", toBase: 28.3495, toBaseOffset: 0)
+                Unit(id: "ounce", name: "Ounce", symbol: "oz", toBase: 28.3495, toBaseOffset: 0),
             ]
         )
     }
