@@ -42,7 +42,8 @@ struct ConversionView: View {
                         value: $leftValue,
                         isFocused: $leftFocused,
                         placeholder: "0",
-                        onSubmit: convertLeftToRight
+                        onSubmit: convertLeftToRight,
+                        accessibilityId: "leftTextField"
                     )
                 }
 
@@ -63,7 +64,8 @@ struct ConversionView: View {
                         value: $rightValue,
                         isFocused: $rightFocused,
                         placeholder: "0",
-                        onSubmit: convertRightToLeft
+                        onSubmit: convertRightToLeft,
+                        accessibilityId: "rightTextField"
                     )
                 }
             }
@@ -77,6 +79,7 @@ struct ConversionView: View {
                 } label: {
                     Image(systemName: isFavorite ? "star.fill" : "star")
                 }
+                .accessibilityIdentifier(isFavorite ? "starFillButton" : "starButton")
             }
 
             ToolbarItemGroup(placement: .keyboard) {
@@ -91,6 +94,7 @@ struct ConversionView: View {
                     rightFocused = false
                 }
                 .fontWeight(.semibold)
+                .accessibilityIdentifier("convertButton")
             }
         }
         .onChange(of: leftFocused) { _, isFocused in

@@ -17,7 +17,7 @@ git diff main..impl/{{SPEC_NAME}}
 
 2. **Review the Source Material**:
 * Read the architectural overview: `specs/01-overview.md`.
-* Read the specific feature requirement: `specs/{{SPEC_NAME}}`.
+* Read the specific feature requirement: `specs/{{SPEC_NAME}}.md`.
 
 
 ## Phase 2: Core Review Categories
