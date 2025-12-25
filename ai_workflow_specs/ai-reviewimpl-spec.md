@@ -10,6 +10,7 @@ When processing the review feedback from Gemini in file `notes/{{FEEDBACK_SPEC}}
 ### Phase 1. Categorization & Priority
 
 * **Address [BLOCKER] items first**: Do not move to [WARN] or [INFO] until the blockers are resolved.
+* **Address [WARN] items**: Also address [WARN] items but ignore [INFO] items.
 * **Validate against Specs**: If a review suggestion contradicts `specs/01-overview.md` or `specs/{{SPEC_NAME}}.md`, flag this contradiction immediately before making changes.
 
 ### Phase 2. Implementation Loop
