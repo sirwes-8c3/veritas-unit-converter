@@ -56,3 +56,7 @@ In v0.1, data storage will Swift's @AppStorage framework.  Existing supported co
     * Currently: Adding new categories requires code changes in ConversionCategory enum and MainTabView
     * Enhancement: Make category names, icons, and tabs fully dynamic by loading all category metadata from JSON
     * Implementation would require: Remove ConversionCategory enum, add category metadata to JSON (name, iconName), build tabs dynamically from loaded data
+* Consider performance implications of NumberFormatter
+    * [WARN] Performance**: In `ConversionService.format(value:decimals:)`, a new `NumberFormatter` is instantiated on every call.
+    *   **Impact**: `NumberFormatter` initialization is computationally expensive. If this method is called frequently (e.g., inside a `List` or `lazy` stack scrolling through many conversions), it could cause frame drops.
+    *   **Recommendation**: Consider caching the formatter or creating a shared instance, although thread safety must be considered. For a v0.1 implementation, this may be acceptable, but it should be noted for optimization.
