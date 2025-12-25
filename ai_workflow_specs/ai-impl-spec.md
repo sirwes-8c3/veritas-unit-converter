@@ -24,10 +24,7 @@ You are implementing a feature from a specification. Follow this exact workflow,
 6. Mark tasks complete as you finish each one
 
 ## Phase 3: Build Loop
-7. Build the project:
-   ```bash
-   xcodebuild -scheme "Advent Editor" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' build
-   ```
+7. Build the project: Use the build command in @CLAUDE.md
 8. **If build succeeds:** Proceed to Phase 4
 9. **If build fails:**
    - Read the build output carefully
@@ -37,10 +34,7 @@ You are implementing a feature from a specification. Follow this exact workflow,
    - Return to step 7
 
 ## Phase 4: Test Loop
-10. Run unit tests:
-    ```bash
-    xcodebuild test -scheme "Advent Editor" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' -only-testing:"Advent EditorTests"
-    ```
+10. Run unit tests: Use the unit test build command @CLAUDE.md
 11. **If all tests pass:** Proceed to Phase 5
 12. **If tests fail:**
     - Read the test output carefully
