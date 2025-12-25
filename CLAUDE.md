@@ -12,36 +12,43 @@ Veritas Converter is an iOS unit converter app built with SwiftUI and Swift 6+, 
 # Build the project
 xcodebuild -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
-  -configuration Debug build
+  -configuration Debug build \
+  -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
+  SWIFT_VERSION=6.0
 
 # Run all tests
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
-  -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0'
+  -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
+  SWIFT_VERSION=6.0
 
 # Run only unit tests
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
   -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
-  -only-testing:VeritasUnitConverterTests
+  -only-testing:VeritasUnitConverterTests \
+  SWIFT_VERSION=6.0
 
 # Run only UI tests
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
   -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
-  -only-testing:VeritasUnitConverterUITests
+  -only-testing:VeritasUnitConverterUITests \
+  SWIFT_VERSION=6.0
 
 # Run a single test class
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
   -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
-  -only-testing:VeritasUnitConverterTests/ConversionServiceTests
+  -only-testing:VeritasUnitConverterTests/ConversionServiceTests \
+  SWIFT_VERSION=6.0
 
 # Run a specific test method
 xcodebuild test -project VeritasUnitConverter.xcodeproj \
   -scheme VeritasUnitConverter \
   -destination 'platform=iOS Simulator,name=iPhone 12,OS=17.0' \
-  -only-testing:VeritasUnitConverterTests/ConversionServiceTests/testCelsiusToFahrenheit_Freezing
+  -only-testing:VeritasUnitConverterTests/ConversionServiceTests/testCelsiusToFahrenheit_Freezing \
+  SWIFT_VERSION=6.0
 ```
 
 ## Architecture
