@@ -20,6 +20,7 @@ struct MainTabView: View {
                     Label(category.displayName, systemImage: category.iconName)
                 }
                 .tag(category)
+                .accessibilityIdentifier("\(category.rawValue)Tab")
             }
 
             // Favorites tab
@@ -30,6 +31,7 @@ struct MainTabView: View {
                 Label("Favorites", systemImage: "star.fill")
             }
             .tag(ConversionCategory.favorites)
+            .accessibilityIdentifier("favoritesTab")
         }
     }
 }

@@ -17,6 +17,7 @@ struct FavoritesTabContent: View {
                 } description: {
                     Text("Tap the star icon in any conversion to add it to your favorites.")
                 }
+                .accessibilityIdentifier("noFavoritesView")
             } else {
                 List {
                     ForEach(favoritesManager.favorites) { favorite in

@@ -10,6 +10,7 @@ struct InputFieldView: View {
     @FocusState.Binding var isFocused: Bool
     let placeholder: String
     let onSubmit: () -> Void
+    let accessibilityId: String?
 
     var body: some View {
         TextField(placeholder, text: $value)
@@ -20,6 +21,7 @@ struct InputFieldView: View {
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(8)
+            .accessibilityIdentifier(accessibilityId ?? "")
     }
 }
 
@@ -33,7 +35,8 @@ struct InputFieldView: View {
                 value: $value,
                 isFocused: $isFocused,
                 placeholder: "0",
-                onSubmit: {}
+                onSubmit: {},
+                accessibilityId: nil
             )
             .padding()
         }
