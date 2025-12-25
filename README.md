@@ -56,6 +56,9 @@ In v0.1, data storage will Swift's @AppStorage framework.  Existing supported co
     * Currently: Adding new categories requires code changes in ConversionCategory enum and MainTabView
     * Enhancement: Make category names, icons, and tabs fully dynamic by loading all category metadata from JSON
     * Implementation would require: Remove ConversionCategory enum, add category metadata to JSON (name, iconName), build tabs dynamically from loaded data
+
+## Tech Debt to Resolved in v0.2
+* Implement string localization
 * Consider performance implications of NumberFormatter
     * [WARN] Performance**: In `ConversionService.format(value:decimals:)`, a new `NumberFormatter` is instantiated on every call.
     *   **Impact**: `NumberFormatter` initialization is computationally expensive. If this method is called frequently (e.g., inside a `List` or `lazy` stack scrolling through many conversions), it could cause frame drops.
@@ -64,3 +67,10 @@ In v0.1, data storage will Swift's @AppStorage framework.  Existing supported co
     * [WARN]** **Performance**: `loadConversions()` reads and decodes the `conversions.json` file from disk every time it is called. Since `getCategoryData` and `getUnits` both rely on this, navigating between tabs or picking units will trigger disk I/O repeatedly.
         * **Recommendation**: Cache the loaded data in a static property.
         * see notes/loader-004-CR-20251224-2359.md
+* Number parsing locale awareness
+    * [WARN] Locale-Aware Number Parsing**: 
+    In `ConversionView.swift`, the code uses `Double(leftValue)` and `Double(rightValue)` to parse input.
+        * **Issue**: The `.keyboardType(.decimalPad)` modifier adapts to the user's locale (displaying a comma `,` in many European regions). However, the `Double(_ string:)` initializer expects a standard dot `.` separator and will return `nil` for strings like "1,5".
+        * **Impact**: Users in regions using comma separators will find the conversion failing silently (values will clear or not update).
+        * **Recommendation**: Use `NumberFormatter` or `try? Double(value, format: .number)` for locale-aware parsing.
+        * see notes/views-005-CR-20251225-0025.md
