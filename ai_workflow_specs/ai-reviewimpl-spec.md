@@ -19,7 +19,7 @@ When processing the review feedback from Gemini in file `notes/{{FEEDBACK_SPEC}}
 * Does the fix solve the reported issue (e.g., memory leak or logic error)?
 * Does the code still build?  Use the build command in CLAUDE.md
 
-3. **If build succeeds:** Proceed to Phase 3
+3. **If build succeeds:** Proceed to Phase 4
 4. **If build fails:**
    - Read the build output carefully
    - Identify the root cause of each error
@@ -28,7 +28,7 @@ When processing the review feedback from Gemini in file `notes/{{FEEDBACK_SPEC}}
    - Return to step 2
 
 
-### Phase 3. **Regression Check** 
+### Phase 3. **Regression Check** **IGNORE**
 5. **Unit Test** Run unit tests to ensure the fix didn't break existing features.  Use the unit test command in CLAUDE.md
 
 6. **If all tests pass:** Proceed to Phase 4

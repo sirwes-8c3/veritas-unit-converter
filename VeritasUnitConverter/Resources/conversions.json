@@ -1,3 +1,84 @@
 {
-  "categories": []
+  "categories": [
+    {
+      "id": "weight",
+      "name": "Weight",
+      "units": [
+        {
+          "id": "gram",
+          "name": "Gram",
+          "symbol": "g",
+          "toBase": 1.0,
+          "toBaseOffset": 0
+        },
+        {
+          "id": "ounce",
+          "name": "Ounce",
+          "symbol": "oz",
+          "toBase": 28.3495,
+          "toBaseOffset": 0
+        }
+      ]
+    },
+    {
+      "id": "length",
+      "name": "Length",
+      "units": [
+        {
+          "id": "centimeter",
+          "name": "Centimeter",
+          "symbol": "cm",
+          "toBase": 1.0,
+          "toBaseOffset": 0
+        },
+        {
+          "id": "inch",
+          "name": "Inch",
+          "symbol": "in",
+          "toBase": 2.54,
+          "toBaseOffset": 0
+        }
+      ]
+    },
+    {
+      "id": "temperature",
+      "name": "Temperature",
+      "units": [
+        {
+          "id": "celsius",
+          "name": "Celsius",
+          "symbol": "°C",
+          "toBase": 1.0,
+          "toBaseOffset": 273.15
+        },
+        {
+          "id": "fahrenheit",
+          "name": "Fahrenheit",
+          "symbol": "°F",
+          "toBase": 0.5555555556,
+          "toBaseOffset": 255.3722222222
+        }
+      ]
+    },
+    {
+      "id": "volume",
+      "name": "Volume",
+      "units": [
+        {
+          "id": "milliliter",
+          "name": "Milliliter",
+          "symbol": "mL",
+          "toBase": 1.0,
+          "toBaseOffset": 0
+        },
+        {
+          "id": "fluidounce",
+          "name": "Fluid Ounce",
+          "symbol": "fl oz",
+          "toBase": 29.5735,
+          "toBaseOffset": 0
+        }
+      ]
+    }
+  ]
 }
