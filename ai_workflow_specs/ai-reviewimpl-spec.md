@@ -1,28 +1,23 @@
 
 # Review Response Protocol for Claude
 
-**Context:** A Senior Engineer has provided feedback on the implementation of `impl/{{SPEC_NAME}}`.
+**Context:** A Senior Engineer has provided feedback on the implementation of `specs/{{SPEC_NAME}}.md`.
 
 ## Instructions for Claude
 
-When processing the review feedback from Gemini in file `notes/{{FEEDBACK_SPEC}}`, follow these steps:
+When processing the review feedback from Gemini in file `notes/{{FEEDBACK_SPEC}}.md`, follow these steps:
 
 ### Phase 1. Categorization & Priority
 
 * **Address [BLOCKER] items first**: Do not move to [WARN] or [INFO] until the blockers are resolved.
-* **Validate against Specs**: If a review suggestion contradicts `specs/01-overview.md` or `specs/{{SPEC_NAME}}`, flag this contradiction immediately before making changes.
+* **Validate against Specs**: If a review suggestion contradicts `specs/01-overview.md` or `specs/{{SPEC_NAME}}.md`, flag this contradiction immediately before making changes.
 
 ### Phase 2. Implementation Loop
 
 1. **Apply the fix**: Modify the code as requested.
 2. **Self-verify**:
 * Does the fix solve the reported issue (e.g., memory leak or logic error)?
-* Does the code still build?
-
-
-```bash
-xcodebuild -scheme "Advent Editor" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' build
-```
+* Does the code still build?  Use the build command in CLAUDE.md
 
 3. **If build succeeds:** Proceed to Phase 3
 4. **If build fails:**
@@ -34,12 +29,7 @@ xcodebuild -scheme "Advent Editor" -destination 'platform=iOS Simulator,name=iPh
 
 
 ### Phase 3. **Regression Check** 
-5. **Unit Test** Run unit tests to ensure the fix didn't break existing features.
-
-```bash
-xcodebuild test -scheme "Advent Editor" -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' -only-testing:"Advent EditorTests"
-
-```
+5. **Unit Test** Run unit tests to ensure the fix didn't break existing features.  Use the unit test command in CLAUDE.md
 
 6. **If all tests pass:** Proceed to Phase 4
 7. **If tests fail:**
@@ -61,4 +51,4 @@ For each feedback item, respond in the following format in your implementation n
 * **Verification**: [Build/Test status]
 * **Remaining Debt**: [If the fix introduced a new minor issue]
 
-Write the implementation notes to `notes/{{FEEDBACK_SPEC}}-impl-YYYYMMDD-HHMM.md` where YYYY is the current year, MM is the current month in numerical format, DD is the current day in numerical format, HH is the current hour in the user's time zone and MM is current minute in the user's time zone.
+Write the implementation notes to `notes/{{SPEC_NAME}}-CR-IMPL-YYYYMMDD-HHMM.md` where YYYY is the current year, MM is the current month in numerical format, DD is the current day in numerical format, HH is the current hour in the user's time zone and MM is current minute in the user's time zone.

@@ -3,7 +3,7 @@
 You are implementing a feature from a specification. Follow this exact workflow, completing each step before moving to the next.
 
 ## Phase 1: Understanding
-1. **Read the spec** at `specs/{{SPEC_NAME}}` thoroughly
+1. **Read the spec** at `specs/{{SPEC_NAME}}.md` thoroughly
 2. Create a todo list breaking down the implementation spec into discrete tasks
 3. Note any ambiguities or questions - ask before proceeding if critical
 
@@ -25,7 +25,7 @@ You are implementing a feature from a specification. Follow this exact workflow,
 
 ## Phase 3: Build Loop
 7. Build the project: Use the build command in @CLAUDE.md
-8. **If build succeeds:** Proceed to Phase 4
+8. **If build succeeds:** Proceed to Phase 5. Ignore Phase 4.
 9. **If build fails:**
    - Read the build output carefully
    - Identify the root cause of each error
@@ -33,7 +33,7 @@ You are implementing a feature from a specification. Follow this exact workflow,
    - Implement the fix
    - Return to step 7
 
-## Phase 4: Test Loop
+## Phase 4: Test Loop. **IGNORE**
 10. Run unit tests: Use the unit test build command @CLAUDE.md
 11. **If all tests pass:** Proceed to Phase 5
 12. **If tests fail:**

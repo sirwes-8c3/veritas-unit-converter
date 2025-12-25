@@ -24,13 +24,13 @@ git diff main..impl/{{SPEC_NAME}}
 
 ### 1. Architectural Alignment
 
-* Does the code follow the design patterns (MVVM, Composable Architecture, etc.) defined in `01-overview.md`?.
-* Are the SwiftData models correctly placed and following the relationships defined in `02-data-models.md`?.
+* Does the code follow the design patterns (MVVM, Composable Architecture, etc.) defined in `specs/01-overview.md`?.
+* Are the SwiftData models correctly placed and following the relationships defined in `specs/models-001.md`?.
 
 ### 2. iOS Best Practices & Performance
 
 * **Memory Management**: Check for strong reference cycles (especially in closures/escaping blocks). Use `[weak self]` where appropriate.
-* **Concurrency**: Ensure UI updates are on the `@MainActor`. Verify that `TagSyncService` or heavy tasks aren't blocking the main thread.
+* **Concurrency**: Ensure UI updates are on the `@MainActor`
 * **SwiftUI**: Check for unnecessary view redraws or heavy logic inside the `body` property.
 
 ### 3. Safety & Edge Cases
@@ -51,4 +51,4 @@ git diff main..impl/{{SPEC_NAME}}
 * For every **[BLOCKER]** or **[WARN]**, provide a specific code snippet or a clear instruction for Claude to follow in the next iteration.
 
 3. Output Feedback
-* Write feedback to `notes/{{SPEC_NAME}}-YYYYMMDD-HHMM` where YYYY is the current year, MM is the current month in numerical format, DD is the current day in numerical format, HH is the current hour in the user's time zone and MM is current minute in the user's time zone.
+* Write feedback to `notes/{{SPEC_NAME}}-CR-YYYYMMDD-HHMM.md` where YYYY is the current year, MM is the current month in numerical format, DD is the current day in numerical format, HH is the current hour in the user's time zone and MM is current minute in the user's time zone.

@@ -12,6 +12,10 @@ struct Unit: Codable, Identifiable, Hashable {
     let toBase: Double
     let toBaseOffset: Double
 
+    enum CodingKeys: String, CodingKey {
+        case id, name, symbol, toBase, toBaseOffset
+    }
+
     // Memberwise initializer with default toBaseOffset
     init(id: String, name: String, symbol: String, toBase: Double, toBaseOffset: Double = 0) {
         self.id = id
